@@ -174,6 +174,10 @@ func (t *TestJob) RunV3(
 	}
 
 	outputOfFiles, renderSucceed, renderError := t.renderV3Chart(targetChart, userValues)
+	for k, v :=  range outputOfFiles {
+		fmt.Printf("k: %s, v: %s\n", k, v)
+	}
+
 	if renderError != nil {
 		result.ExecError = renderError
 		// Continue to enable matching error via failedTemplate assert
